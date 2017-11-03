@@ -1,0 +1,118 @@
+<!-- 
+Excercise 1 :
+a) Log in to the application as a User, using credentials, username: user1 and password:user1pwd 
+b) Click on the username link on the top right corner and select 'update profile' from the drop-down menu.
+c) Modify the role, from 'User' to 'Admin' and save the profile.
+d) Log in to the application again using the same credentials, username: user1 and password:user1pwd and
+   verify if you observe the Admin View, once logged in. 
+   
+Excercise 2 :
+a) Add another column to the 'UserList' table. Modify <tr> with id 'userHeader', to include a new column
+   and name it 'Manage' .
+b) Similar to the 'UserView', add a delete icon to every row for each 'user', and perform the 'delete user'
+   functionality.
+   
+Excercise 3:
+a)Reduce the height of the user list table (id = 'userList') and make the content inside scrollable.
+  Modify #userListBody in the app.css file .
+b)Add a spacing of 20px between the user list table and "add User" button (id = "addUser" ).
+ -->
+
+<link rel="Stylesheet" href="http://localhost:5000/app/accordion.css" />
+
+
+<div id="logoHeader">
+	<img id="logo" ng-src="images/Logo.png" />
+	<div uib-dropdown>
+		<a id="username" uib-dropdown-toggle> {{Person.Username}} <span
+			class="caret"></span>
+		</a>
+		<ul class="dropdown-menu" uib-dropdown-menu role="menu">
+			<li role="menuitem" ng-click = "updatePerson()" >Update Profile</li>
+		</ul>
+
+	</div>
+	<a id="logout" href='#/login'> Logout </a>
+</div>
+
+<div id="navigationBar">
+	<button id="usersIcon" autofocus="focusUsersIcon"></button>
+	<button id="placeholder1"></button>
+	<button id="placeholder2"></button>
+</div>
+
+<div id = "userContainer" ng-hide = "hideUserContainer" > </div>
+<table id="userList" width="100%">
+	<th colspan="4" id="userListHeader">
+		<center>Users</center>
+	</th>
+	<tbody id="userListBody">
+		<tr id="userHeader" height="35px">
+			<td width="25%">First Name</td>
+			<td width="25%">Last Name</td>
+			<td width="25%">Username</td>
+			<td width="25%">Email</td>
+			<!--  Excercise 2
+			Add new column here and name it 'Manage' . Reduce the width of all columns to 20% . -->
+		</tr>
+		<tr ng-repeat="user in Users">
+			<td width="25%">{{user.FirstName}}</td>
+			<td width="25%">{{user.LastName}}</td>
+			<td width="25%">{{user.Username}}</td>
+			<td width="25%">{{user.Email}}</td>
+			<!-- Excercise 2
+			 Include new column here and include a button inside the column, with id = 'deleteIconAdmin'.
+			 Add a deleteUser() function to the ng-click attribute, of the button. Follow deleteProject() example in
+			 'UserView.html' inside tag <div class="project-heading"> . Send the UserId as a parameter to the deleteUser()
+			 function, using user._id .
+			 -->
+		</tr>
+		<tr height="150px">
+		</tr>
+	</tbody>
+
+</table>
+
+
+
+<button id="addUser" ng-click="addUser()">Add User</button>
+
+
+
+<script type="text/ng-template" id="newProfile.html">
+
+<table id = "profileForm">
+<thead> 
+<th colspan = "2" id = "newProfileHeader">  {{Title}}  </th>
+</thead>
+<tbody>
+<tr>  <td width = "120px">  Username    </td>  <td width = "200px"> <input type = "text" ng-model = "Person.Username" ng-disabled = "disableUsername" />    </td> </tr>
+<tr>  <td width = "120px">  Password    </td>  <td width = "200px"> <input type = "text" ng-model = "Person.Password" ng-disabled = "disablePassword" />    </td> </tr>
+<tr>  <td width = "120px">  First Name    </td>  <td width = "200px"> <input type = "text" ng-model = "Person.FirstName" />    </td> </tr>
+<tr>  <td width = "120px">  Last Name     </td>  <td width = "200px"> <input type = "text" ng-model = "Person.LastName" />    </td> </tr>
+<tr>  <td width = "120px">  Address Line1 </td> <td width = "200px"> <input type = "text" ng-model = "Person.Address.Line1" />    </td> </tr>
+<tr>  <td width = "120px">  Address Line2 </td> <td width = "200px"> <input type = "text" ng-model = "Person.Address.Line2" />    </td> </tr>
+<tr>  <td width = "120px">  City          </td> <td width = "200px"> <input type = "text" ng-model = "Person.Address.City" />    </td> </tr>
+<tr>  <td width = "120px">  State          </td> <td width = "200px"> <input type = "text" ng-model = "Person.Address.State" />    </td> </tr>
+<tr>  <td width = "120px">  E-mail   </td> <td width = "200px">   <input type = "email" ng-model = "Person.Email" />   </td>  </tr> 
+<tr>  <td width = "120px">  Phone   </td> <td width = "200px">  <input type = "text" ng-model = "Person.Phone" />  </td>  </tr>
+<tr>  <td width = "120px">  Role   </td> <td width = "200px">  <input type = "text" ng-model = "Person.Role" />  </td>  </tr>
+ 
+<tr>  <td width = "150px" > <center> <button ng-click = "save()" > Save </button> </center> </td> <td width = "150px" > <center> <button ng-click = "cancel()" > Cancel </button> </center> </td> </tr>
+</tbody>
+</table>
+
+</script>
+
+
+<script type="text/ng-template" id="profileValidation.html">
+<div class = "modalValidationHeader" >
+</div>
+<div class = "modalValidationBody" >
+<img class = "modalError" src = "images/errorIcon.png"  />
+  <div  class = "modalValidationText" > {{modalValidationText}} </div>
+  <br><br>
+  <center> <button class = "modalOk" ng-click = "hideModal()" > OK </button> </center> 
+</div>
+</script>
+

@@ -1,0 +1,20 @@
+Excercise locations
+-------------------
+1) Admin View
+ Excercise 1: 
+   a) AdminView.html (projectMatrix\views\AdminView.html)
+ Excercise 2:
+   a) AdminView.html (projectMatrix\views\AdminView.html)
+   b) AdminViewController.js (projectMatrix\app\controllers\AdminViewController.js)
+ Excercise 3:
+   a) AdminView.html (projectMatrix\views\AdminView.html)
+   b) app.css (projectMatrix\app\app.css) 
+
+2) User View 
+ Excercise 1:
+   a) UserViewController.js (projectMatrix\app\controllers\UserViewController.js)
+ Excercise 2:
+   a) UserViewController.js (projectMatrix\app\controllers\UserViewController.js)
+   b) app.css (projectMatrix\app\app.css) 
+ Excercise 3:
+   a) UserViewController.js (projectMatrix\app\controllers\UserViewController.js)

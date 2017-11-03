@@ -1,0 +1,26 @@
+<div id = "logoHeader"> 
+<img id = "logo" src = "images/Logo.png"  />
+</div>
+
+
+<div id = "loginContainer"> 
+
+
+         <label> Username </label> &nbsp;&nbsp;&nbsp;<input ng-model = "username" type = "text" />  <br> <br> 
+         <label> Password </label> &nbsp;&nbsp;&nbsp;<input ng-model = "password" type = "password" />  <br> <br>
+          <!--  'Add Profile' - Only for the administrator, to add a new user -->      
+         <button ng-click = 'addProfile()' ng-hide = 'true'> Add Profile </button>
+         <button ng-click = 'logIn()'> Log In </button>
+
+</div>
+
+<div id = "invalidLoginContainer">
+ <label class = "invalidLogin" ng-hide = "hideLoginError">Invalid Username </label> <br>
+ <label class = "invalidLogin" ng-hide = "hideLoginError">or Password </label>
+</div>
+
+
+
+
+
+

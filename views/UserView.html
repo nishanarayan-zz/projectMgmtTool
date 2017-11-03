@@ -1,0 +1,116 @@
+<link rel="Stylesheet" href="http://localhost:5000/app/accordion.css" />
+<div id="logoHeader">
+	<img id="logo" ng-src="images/Logo.png" />
+	<div uib-dropdown>
+		<a id="username" uib-dropdown-toggle> {{Person.Username}} <span
+			class="caret"></span>
+		</a>
+		<ul class="dropdown-menu" uib-dropdown-menu role="menu">
+			<li role="menuitem" ng-click="updatePerson()">Update Profile</li>
+		</ul>
+	</div>
+
+	<a id="logout" href='#/login'> Logout </a>
+</div>
+
+<div id="navigationBar">
+	<button id="projectsIcon" autofocus="focusProjectsIcon"></button>
+	<button id="placeholder1"></button>
+	<button id="placeholder2"></button>
+</div>
+
+<div id="projectsBackgroundContainer" ng-hide="hideProjectContainer">
+</div>
+<div id="projectsContainer">
+	<div id="projectsHeader">Projects</div>
+	<div id="projectListContainer">
+
+		<uib-accordion id="projectsList" close-others="oneAtATime" >
+		<div uib-accordion-group class="panel-default" id = "{{project._id}}" is-open="isOpen"
+			heading="{{project.ProjectName}}" height="40px" body = "{{project.ProjectDescription}}"
+			ng-repeat="project in Projects"  template-url="project-template.html"  >
+			{{project.ProjectDescription}} 
+		</div>
+		</uib-accordion>
+	</div>
+</div>
+
+<button id="addProject" ng-click="addProject()">Add Project</button>
+
+<script type="text/ng-template" id="newProfile.html">
+
+<table id = "profileForm">
+<thead> 
+<th colspan = "2" id = "newProfileHeader">  {{Title}}  </th>
+</thead>
+<tbody>
+<tr>  <td width = "120px">  Username    </td>  <td width = "200px"> <input type = "text" ng-model = "Person.Username" ng-disabled = "true" />    </td> </tr>
+<tr>  <td width = "120px">  First Name    </td>  <td width = "200px"> <input type = "text" ng-model = "Person.FirstName" />    </td> </tr>
+<tr>  <td width = "120px">  Last Name     </td>  <td width = "200px"> <input type = "text" ng-model = "Person.LastName" />    </td> </tr>
+<tr>  <td width = "120px">  Address Line1 </td> <td width = "200px"> <input type = "text" ng-model = "Person.Address.Line1" />    </td> </tr>
+<tr>  <td width = "120px">  Address Line2 </td> <td width = "200px"> <input type = "text" ng-model = "Person.Address.Line2" />    </td> </tr>
+<tr>  <td width = "120px">  City          </td> <td width = "200px"> <input type = "text" ng-model = "Person.Address.City" />    </td> </tr>
+<tr>  <td width = "120px">  State          </td> <td width = "200px"> <input type = "text" ng-model = "Person.Address.State" />    </td> </tr>
+<tr>  <td width = "120px">  E-mail   </td> <td width = "200px">   <input type = "email" pattern = "[^ @]*@[^ @]*.com"  ng-model = "Person.Email" />   </td>  </tr> 
+<tr>  <td width = "120px">  Phone   </td> <td width = "200px">  <input type = "text" ng-model = "Person.Phone" />  </td>  </tr>
+<tr>  <td width = "120px">  Role   </td> <td width = "200px">  <input type = "text" ng-model = "Person.Role" />  </td>  </tr>
+ 
+<tr>  <td width = "150px" > <center> <button ng-click = "save()" > Save </button> </center> </td> <td width = "150px" > <center> <button ng-click = "cancel()" > Cancel </button> </center> </td> </tr>
+</tbody>
+</table>
+
+</script>
+
+
+
+<script type="text/ng-template" id="projectDescription.html">
+<div id = "projectHeader" > Project Information  </div> 
+<table>
+<tbody id = "projectBody" >
+<tr height = "10px" >  </tr>
+<tr>
+<td width = "10px" >  </td> <td height = "40px" width = "90px" > Project Name  </td> <td width = "200px" > <input ng-model = "projectName" type = "text" height = "40px" width = "150px" /> </td> </tr>
+<tr>
+<td width = "10px" >  </td> <td width = "90px" > Project Description </td> <td width = "200px"> <textarea ng-model = "projectDescription" type = "text" rows = "6" cols = "30" /> </td> </tr>
+<tr height = "30px" >   </tr> 
+<tr> 
+<td width = "150px" colspan = "2" > <button id = "save" ng-click = "save()" > Save </button> </td> <td width = "150px">  <button id = "cancel" ng-click = "cancel()" > Cancel </button>  </td>
+</tr>
+<tr height = "20px" >   </tr>
+</tbody>
+</table>
+</script>
+
+
+
+<script type="text/ng-template" id="project-template.html"  >    
+    <div class="panel panel-default" ng-controller = "UserViewController" >
+      <div class="project-heading"  >
+            <div class = "project-title" ng-click="toggleOpen();viewProject();"  >
+              <span id = "headingText" > {{heading}}  </span>  
+            </div>           
+           <button id = "editIcon"   ng-hide = "hideEditIcon" ng-click="toggleOpen();editProject(heading);" > </button>
+           <button id = "deleteIcon" ng-click = "deleteProject(heading);"  > </button>  
+           <button id = "saveIcon"  ng-hide = "hideSaveIcon" ng-click="toggleOpen();saveEditedProject(id);" > </button>           
+      </div>
+      <div ng-attr-id = "{{getDescId(heading)}}"  class="panel-collapse collapse"  uib-collapse="!isOpen"  >
+        <div ng-hide = "hidePanelBody" class="panel-body" style="text-align: left"  > {{body}} </div>
+        <textarea id = "projDescTextArea"  ng-hide = "hideProjDescTextArea" class="panel-body" style="text-align: left" ng-model = "desc" ng-init = "desc = body"  > {{desc}} </div>
+     
+     </div>
+    </div>   
+</script>
+
+
+<script type="text/ng-template" id="profileValidation.html">
+<div class = "modalValidationHeader" >
+</div>
+<div class = "modalValidationBody" >
+<img class = "modalError" src = "images/errorIcon.png"  />
+  <div  class = "modalValidationText" > {{modalValidationText}} </div>
+  <br><br>
+  <center> <button class = "modalOk" ng-click = "hideModal()" > OK </button> </center> 
+</div>
+</script>
+
+

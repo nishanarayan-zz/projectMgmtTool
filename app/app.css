@@ -1,0 +1,398 @@
+@font-face {
+   font-family:Cyen;
+   src:url(fonts/Cyen.ttf);
+}
+
+
+#homePage {
+  background:#b3cccc;
+}
+
+#logo {
+  position:absolute;
+  top:4px;
+  left:0px;
+  height:80px;
+  width:200px;
+}
+
+
+#loginContainer {
+  position:absolute;
+  top: 185px;
+  left:520px;
+  width:300px;
+  color:grey;
+}
+
+
+
+
+#logoHeader {
+  position:absolute;
+  top:0px;
+  height:85px;
+  width:100%;
+  border-bottom:1px solid #669999;
+}
+
+#invalidLoginContainer {
+ position:relative;
+ color:red ;
+ top:100px;
+ left:180px;
+}
+
+
+#profileForm {
+ position:absolute;
+ top:170px;
+ left:490px;
+ background:#d1e0e0;
+ border:2px solid #669999;
+ width:400px;
+ height:380px;
+ z-index:5;
+}
+
+
+#projectsBackgroundContainer {
+ position:absolute;
+ left:-10px;
+ top:-10px;
+ height:102%;
+ width:102%;
+ background:rgba(0,0,0,0.6);
+ z-index:4;
+}
+
+
+#updateProfile {
+ position:relative;
+ top: 30px;
+ left:-80px;
+}
+
+#addProject {
+ position:absolute;
+ top:600px;
+ left:620px;
+ background:#85adad;
+ border-radius:5px;
+ height:30px;
+ width:100px;
+ color:#1f2e2e;
+}
+
+/* Excercise 3:
+ * b)Add a spacing of 20px between the user list table and "add User" button (id = "addUser" ). */
+
+#addUser {
+ position:absolute;
+ top:600px;
+ left:620px;
+ background:#85adad;
+ border-radius:5px;
+ height:30px;
+ width:100px;
+ color:#1f2e2e;
+}
+
+
+
+#projectsIcon {
+ position:absolute;
+ top:90px;
+ align:center;
+ height:68px;
+ width:72px;
+ background: url(../views/images/projects.png) ;
+}
+
+#usersIcon {
+ position:absolute;
+ top:90px;
+ align:center;
+ height:68px;
+ width:72px;
+ background: url(../views/images/usersIcon2.png) ;
+}
+
+
+#usersIcon:focus {
+ border:2px solid #476b6b;
+}
+
+#usersIcon:hover {
+ border:2px solid #476b6b;
+}
+
+#userHeader {
+  text-align:center;
+  font-family:Cyen;
+  font-size:14px;
+  font-weight:bold;
+  background:#a6a6a6;
+  border:1px solid black;
+  color:#1f2e2e;
+  height:30px;
+}
+
+#projectsIcon:focus {
+ border:2px solid #476b6b;
+}
+
+#projectsIcon:hover {
+ border:2px solid #476b6b;
+}
+
+#placeholder1:hover {
+ border:2px solid #476b6b;
+}
+
+#placeholder1:focus {
+ border:2px solid #476b6b;
+}
+
+#placeholder2:hover {
+ border:2px solid #476b6b;
+}
+#placeholder2:focus {
+ border:2px solid #476b6b;
+}
+
+#placeholder1 {
+ position:absolute;
+ top:90px;
+ left:515px;
+ height:68px;
+ width:72px;
+ background-color:#b3cccc;
+}
+
+#placeholder2 {
+ position:absolute;
+ top:90px;
+ left:600px;
+ height:68px;
+ width:72px;
+ background-color:#b3cccc;
+}
+
+
+#profileUpdateResult {
+  color:#2d8659;
+}
+
+#logout {
+ position:absolute;
+ color:#334d4d;
+ right:50px;
+ top:3px ;
+ font-family:'Calibri';
+}
+
+#username {
+ color:#334d4d;
+ position:absolute;
+ top:3px;
+ right:120px;
+}
+
+
+#newProfileHeader {
+  background:#85adad;
+  color:#1f2e2e;
+  height:25px;
+}
+
+.userViewProfileHeader {
+  background:#2d8659;
+  color:black;
+}
+
+
+#projectsContainer {
+ position:absolute;
+ top:160px;
+ left:2px;
+ width:1360px;
+ height:422px;
+ border:1px solid #669999;
+ border-radius:3px;
+}
+
+/* Excercise 3 - Admin View
+ * a)Reduce the height of the user list table (id = 'userList') and make the content inside scrollable.
+ * Modify #userListBody in the app.css file . */
+
+#userList {
+ position:absolute;
+ top:160px;
+ left:2px;
+ width:1360px;
+ height:350px;
+ border:1px solid #669999;
+ border-radius:3px;
+}
+
+#userContainer {
+position:absolute;
+top:-10px;
+left:-10px;
+height:102%;
+width:102%;
+z-index:1;
+background:rgba(0,0,0,0.6);
+}
+
+
+#projectsHeader {
+  position:relative;
+  top:0px;
+  font-family:Cyen;
+  font-size:18px;
+  font-weight:bold;
+  background:#85adad;
+  border:1px solid #669999;
+  color:#1f2e2e;
+  height:30px;
+}
+
+.modalValidationHeader {
+  top:36%;
+  left:38%;
+  height:20px;
+  width:350px;
+  position:absolute;
+  z-index:6;
+  background-color:#76a2a2;
+  border-top:2px solid #344c4c;
+  border-left:2px solid #344c4c;
+  border-right:2px solid #344c4c;
+  border-top-left-radius:1em;
+  border-top-right-radius:1em;
+}
+
+.modalValidationBody {
+ top:39%;
+ left:38%;
+ height:100px;
+ width:350px;
+ position:absolute;
+ z-index:6;
+ background-color:#b3cbcb;
+ border-top:1px solid #344c4c;
+ border-left:2px solid #344c4c;
+ border-right:2px solid #344c4c;
+ border-bottom:2px solid #344c4c;
+ border-bottom-right-radius:1em;
+ border-bottom-left-radius:1em;
+}
+
+.modalError {
+ position:relative;
+ top:10px;
+ left:10px;
+}
+
+.modalValidationText {
+ position:absolute;
+ top:12px;
+ left:60px;
+ height:40px;
+ width:250px;
+ text-align:center;
+ color:#1f2e2e;
+ font-family:'Calibri';
+}
+
+
+
+#userListHeader {
+  font-family:Cyen;
+  font-size:18px;
+  font-weight:bold;
+  background:#85adad;
+  border:1px solid #669999;
+  color:#1f2e2e;
+  height:30px;
+
+}
+
+#userListBody {
+ height:392px;
+ overflow-y:scroll;
+}
+
+
+#projectListContainer {
+ position:relative;
+ top:0px;
+ left:0px;
+ height:388px;
+ border:1px solid #669999;
+ overflow-y:scroll;
+ overflow-x:hidden;
+ border-bottom-left-radius:3px;
+ border-bottom-right-radius:3px;
+}
+
+
+#projectsList {
+ position:relative;
+ top: 0px;
+ width:100%;
+ left:0px;
+}
+
+#projectHeader {
+ position:absolute;
+ left:35%;
+ top:33%;
+ width:400px;
+ background:#85adad;
+ text-align:center;
+ height:32px;
+ border:2px solid #669999;
+ border-top-left-radius:5px;
+ border-top-right-radius:5px;
+ z-index:5;
+}
+
+#projectBody {
+ position:absolute;
+ left:35%;
+ top:38%;
+ height:270px;
+ width:400px;
+ z-index:5;
+ background:#d1e0e0;
+ border-bottom-left-radius:5px;
+ border-bottom-right-radius:5px;
+ border:2px solid #669999;
+}
+
+
+/* User View - Excercise 2 . Add a border radius of 5px, set a background color of #85adad 
+ * and add a border of 2px with color #669999 . Also set a height of 30px and width of 60px.
+ */
+
+#save {
+position:relative;
+left:70px;
+}
+
+
+/* User View - Excercise 2 . Add a border radius of 5px, set a background color of #85adad 
+ * and add a border of 2px with color #669999 . Also set a height of 30px and width of 60px.
+ */
+
+#cancel {
+position:relative;
+left:130px;
+}
+
+
+
+
